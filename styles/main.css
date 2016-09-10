@@ -44,7 +44,7 @@ body {
     height: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
-    vertical-align: middle;
+    vertical-align: middle; 
     color: white;
     font-size: 0.625rem;
     letter-spacing: 0.05rem;
@@ -58,6 +58,11 @@ body {
 .links-container .navbar-link:hover {
     color: rgb(233,50,117);
 }
+
+.links-container .navbar-link:active {
+    color: rgb(233,50,117);
+    background-color: white;
+} 
 
 .container {
     margin: 0 auto;
