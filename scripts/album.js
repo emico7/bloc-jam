@@ -28,6 +28,23 @@ var albumMarconi = {
     ]
 };
 
+var albumSmith = {
+    title: 'In The Lonely Hour',
+    artist: 'Sam Smith',
+    label: 'EM',
+    year: '2014',
+    albumArtUrl: 'assets/images/album_covers/02.png',
+    songs: [
+        { title: 'Money on My Mind', duration: '2:01' },
+        { title: 'Good Thing', duration: '4:31' },
+        { title: 'Stay with Me', duration: '3:33' },
+        { title: 'Leave Your Lover', duration: '5:01' },
+        { title: 'I\'m Not the Only One', duration: '3:12' }
+    ]
+};
+
+var albumArr = [albumPicasso, albumMarconi, albumSmith];
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
         '<tr class="album-view-song-item">'
@@ -63,4 +80,15 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+    var index = 0;
+
+    var albumCover = document.getElementsByClassName('album-cover-art')[0];
+    albumCover.addEventListener('mousedown', function(event) {
+        index++;
+        if (index === albumArr.length) {
+            index = 0;
+        }
+        setCurrentAlbum(albumArr[index]);
+    });
 };
+
