@@ -63,11 +63,21 @@ var setCurrentAlbum = function(album) {
 
 var findParentByClassName = function(element, targetClass) {
    if (element) {
-       var currentParent = element.parentElement;
-       while (currentParent.className != targetClass && currentParent.className != null) {
-           currentParent = currentParent.parentElement;
+       
+       if (element.parentElement) {
+           var currentParent = element.parentElement;
+           while (currentParent.className != targetClass && currentParent.className != null) {
+               
+               if (currentParent) {
+                   currentParent = currentParent.parentElement;
+               } else {
+                   alert("No Parent with the specified classname found");
+               }
+           }
+           return currentParent;
+       } else {
+           alert("No Parent found");
        }
-       return currentParent;
    }
 };
 
