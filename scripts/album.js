@@ -201,15 +201,15 @@ var $nextButton = $('.main-controls .next');
 var $mainControlButton = $('.main-controls .play-pause')
 
 var togglePlayFromPlayerBar = function() {
-    var currentlyPlayingCell = getSongNumberCell;
+    var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
     
     if (currentSoundFile.isPaused()) {
         currentlyPlayingCell.html(pauseButtonTemplate);
-        $mainControlButton.html(playerBarPlayButton);
-        currentSoundFile.play();
-    } else if { 
-        currentlyPlayingCell.html(playButtonTemplate);
         $mainControlButton.html(playerBarPauseButton);
+        currentSoundFile.play();
+    } else { 
+        currentlyPlayingCell.html(playButtonTemplate);
+        $mainControlButton.html(playerBarPlayButton);
         currentSoundFile.pause();  
     }
 };
@@ -220,9 +220,8 @@ $(document).ready(function() {
     $nextButton.click(nextSong);
     
     $mainControlButton.click(function() {
-        console.log(test);
         togglePlayFromPlayerBar();
-     })
+     });
 });
 
 
