@@ -274,9 +274,43 @@ var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
+var $mainControlButton = $('.main-controls .play-pause')
+
+var togglePlayFromPlayerBar = function() {
+    var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+    
+    if (currentSoundFile.isPaused()) {
+        currentlyPlayingCell.html(pauseButtonTemplate);
+        $mainControlButton.html(playerBarPauseButton);
+        currentSoundFile.play();
+    } else { 
+        currentlyPlayingCell.html(playButtonTemplate);
+        $mainControlButton.html(playerBarPlayButton);
+        currentSoundFile.pause();  
+    }
+};
+
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     setupSeekBars();
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
+    
+    $mainControlButton.click(function() {
+        togglePlayFromPlayerBar();
+     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
