@@ -28,7 +28,12 @@ var setVolume = function(volume) {
 var filterTimeCode = function(timeInSeconds) {
     var seconds = parseFloat(timeInSeconds) % 60;
     var minutes = (timeInSeconds - seconds) / 60;
-    return Math.floor(minutes) + ':' + Math.floor(seconds);
+    var time = Math.floor(minutes) + ':' + Math.floor(seconds);
+    
+    if (seconds < 10) {
+        time = Math.floor(minutes) + ':0' + Math.floor(seconds);
+    }
+    return time;
 };
 
 var getSongNumberCell = function(number) {
